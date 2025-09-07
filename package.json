@@ -1,0 +1,13 @@
+{
+    "name": "ciphercast",
+    "version": "0.0.1",
+    "description": "A utility that enables trustless p2p communication",
+    "license": "MIT",
+    "author": "nifemibosun <nifemibosun70@gmail.com>",
+    "scripts": {
+        "build": "tsc & npm link"
+    },
+    "bin": {
+        "ciphercast": "./dist/cli.js"
+    }
+}
