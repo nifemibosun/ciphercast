@@ -44,6 +44,7 @@ export function startReceiver(receiverPrivHex: string, outDir: string, port: num
                 const outPath = path.join(outDir, env.filename);
                 fs.mkdirSync(outDir, { recursive: true });
                 fs.writeFileSync(outPath, plaintext);
+                console.log(`File received and saved as: ${outPath}`);
                 socket.write(JSON.stringify({ ok: true, savedTo: outPath }));
             } catch (err) {
                 socket.write(JSON.stringify({ ok: false, message: String(err) }));

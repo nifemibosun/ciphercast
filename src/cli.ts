@@ -18,8 +18,9 @@ function main(): void {
 
     switch (args[2]) {
         case "keygen":
-            console.log("Private Key: ", genKeyPair().privateKey);
-            console.log("Public Key: ", genKeyPair().publicKey);
+            const keyPair = genKeyPair();
+            console.log("Private Key: ", keyPair.privateKey);
+            console.log("Public Key: ", keyPair.publicKey);
             break;
 
         case "recv":
