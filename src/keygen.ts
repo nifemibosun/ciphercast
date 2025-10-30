@@ -8,7 +8,7 @@ export function genKeyPair(): any {
 
     return {
         privateKey: ecdh.getPrivateKey("hex"),
-        publicKey: ecdh.getPublicKey("hex")
+        publicKey: ecdh.getPublicKey("hex", "compressed")
     };
 
 }

@@ -36,7 +36,7 @@ This will output a private key and a public key.
 
 ### Send a message/file
 ```bash
-ciphercast send <senderPrivHex> <senderPubHex> <receiverPubHex> <filePath> <host> <port>
+ciphercast send <senderPrivkeyHex> <senderPubkeyHex> <receiverPubkeyHex> <filePath> <host-ip> <host-port>
 ```
 - file: Path to the file/message you want to send.
 - recipient-public-key: The peer’s public key (for encryption).
@@ -53,7 +53,7 @@ CipherCast will:
 
 ### Receive a message/file
 ```bash
-ciphercast recv <myPrivHex> <outputDir> <port>
+ciphercast recv <myPrivkeyHex> <outputDir> <host-port>
 ```
 CipherCast will:
 - Wait for incoming encrypted data.
@@ -63,10 +63,12 @@ CipherCast will:
 ---
 
 ## Disclaimer
-This is an educational project exploring P2P cryptography in Node.js.
 Do not use in production without a proper security audit.
+
+### Note:
+CipherCast works best with IPv6.
 
 ---
 
 ## License
-MIT License © 2025 nifemibosun
+MIT License © 2025 Nifemi Bosun
