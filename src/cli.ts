@@ -1,18 +1,21 @@
 #!/usr/bin/env node
 
-//@ts-ignore
 import process from 'process';
-
-import { genKeyPair } from './keygen';
-import { sendFile } from "./sender";
-import { startReceiver } from "./receiver";
+import { genKeyPair } from './keygen.js';
+import { sendFile } from "./sender.js";
+import { startReceiver } from "./receiver.js";
 
 
 function main(): void {
     const args = process.argv.slice();
 
     if (args.length < 3 || args.length > 9) {
-        console.error('Incorrect Arguments');
+        console.error('Usage: ciphercast [Command]\n');
+        // Commands
+        console.error('Commands');
+        console.error('    keygen      Generates a new set of public-private key pair');
+        console.error('    recv        For receiving messaeges from others');
+        console.error('    send        For sending messages to an open receiver');
         return;
     }
 
@@ -43,7 +46,7 @@ function main(): void {
             const recipientPubHex = args[5];
             const fileNameSend = args[6];
             const host = args[7];
-            const portSend = parseInt(args[8], 10);
+            const portSend = parseInt(args[8]!, 10);
 
             console.log(`Sending encrypted ${fileNameSend} to ${host}:${portSend}...`);
             sendFile(senderPrivHex, senderPubHex, recipientPubHex, fileNameSend, host, portSend)

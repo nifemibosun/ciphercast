@@ -1,30 +1,24 @@
-// @ts-ignore
 import net from 'net';
-// @ts-ignore
-import fs from 'fs';
-//@ts-ignore
-import path from 'path';
-//@ts-ignore
+import fs from 'fs'
+import path from 'path'
 import { createECDH } from 'crypto';
-import { deriveAesKeyFromSecret, aesGcmEncrypt } from './util';
+import { deriveAesKeyFromSecret, aesGcmEncrypt } from './util.js';
 
 
 export async function sendFile(senderPrivHex: string, senderPubHex: string, recipientPubHex: string, filePath: string, host: string, port: number) {
     const ecdh = createECDH('secp256k1');
-    //@ts-ignore
+
     ecdh.setPrivateKey(Buffer.from(senderPrivHex, 'hex'));
-    //@ts-ignore
+    
     const recipientPubBuf = Buffer.from(recipientPubHex, 'hex');
     const secret = ecdh.computeSecret(recipientPubBuf);
-
     const aesKey = deriveAesKeyFromSecret(secret);
-
     const fileBuf = fs.readFileSync(filePath);
 
     const { iv, tag, ciphertext } = aesGcmEncrypt(aesKey, fileBuf);
 
     const envelope = {
-        kind: 'ciphercast-v1',
+        kind: 'ciphercast-v0.1.0',
         senderPub: senderPubHex,
         iv: iv.toString('base64'),
         tag: tag.toString('base64'),
@@ -36,7 +30,7 @@ export async function sendFile(senderPrivHex: string, senderPubHex: string, reci
 
     return new Promise<void>((resolve, reject) => {
         const socket = net.createConnection({ host, port }, () => {
-            //@ts-ignore
+    
             socket.write(Buffer.from(payload, 'utf-8'), () => {
                 socket.end();
             });

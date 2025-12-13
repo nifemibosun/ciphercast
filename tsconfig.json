@@ -1,9 +1,23 @@
 {
   "compilerOptions": {
+    // Environment Settings
     "target": "esnext",
     "module": "nodenext",
+
+    // File Layout
     "rootDir": "./src",
     "outDir": "./dist",
+
+    // Stricter Typechecking Options
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+
+    // Recommended Options
     "strict": true,
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "noUncheckedSideEffectImports": true,
+    "moduleDetection": "force",
+    "skipLibCheck": true,
   }
 }

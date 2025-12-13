@@ -14,9 +14,18 @@ It uses Elliptic Curve Cryptography (secp256k1) and symmetric encryption (AES-25
 ---
 
 ## Installation
+### Clone the repo
 ```bash
 git clone https://github.com/nifemibosun/ciphercast.git
+```
+
+### Enter the clone derctory, install neccessary packages and build
+```
+# Enter the directory
 cd ciphercast
+
+# Install neccessary packages and build
+npm install
 npm run build
 ```
 Now you can run ciphercast from anywhere.

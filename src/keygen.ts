@@ -1,6 +1,4 @@
-//@ts-ignore
 import crypto from 'crypto';
-
 
 export function genKeyPair(): any {
     const ecdh = crypto.createECDH("secp256k1");
