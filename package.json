@@ -1,6 +1,6 @@
 {
     "name": "ciphercast",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "A utility that enables trustless p2p communication",
     "license": "MIT",
     "author": "nifemibosun <nifemibosun70@gmail.com>",
@@ -12,7 +12,7 @@
         "ciphercast": "./dist/cli.js"
     },
     "devDependencies": {
-        "@types/node": "^25.0.1",
-        "typescript": "^5.9.3"
+        "@types/node": "^25.9.1",
+        "typescript": "^6.0.3"
     }
 }
